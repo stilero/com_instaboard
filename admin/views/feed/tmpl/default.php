@@ -10,4 +10,4 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 ?>
-<h2><?php echo $this->items; ?></h2>
+<h2><?php var_dump($this->items); ?></h2>
