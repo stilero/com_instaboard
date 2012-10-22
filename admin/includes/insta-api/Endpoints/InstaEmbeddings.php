@@ -18,7 +18,7 @@ class InstaEmbeddings extends InstaEndpoint{
     
     private static $endpointUrl = 'http://api.instagram.com/oembed/';
     
-    public function __construct($accessToken) {
+    public function __construct($accessToken='') {
         parent::__construct($accessToken);
     }
     /**

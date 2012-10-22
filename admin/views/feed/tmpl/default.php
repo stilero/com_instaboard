@@ -10,4 +10,10 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 ?>
-<h2><?php var_dump($this->items); ?></h2>
+<?php foreach ($this->items as $item) : ?>
+    <?php
+        $InstaEmbed = new InstaEmbeddings();
+        $embeddings = json_decode($InstaEmbed->getOembeded($item->link));
+    ?>
+    <img src="<?php echo $embeddings->url; ?>" />
+<?php endforeach; ?>
