@@ -20,6 +20,9 @@ jimport('joomla.application.component.modelitem');
 class InstaboardModelFeed extends JModelItem
 {
 	
-    public function getMsg(){
+    public function getImages(){
+        $params = & JComponentHelper::getParams('com_instaboard');
+        $accessToken = $params->get('access_token');
+        return $accessToken;
     }
 }

@@ -18,7 +18,11 @@ jimport('joomla.application.component.view');
 
 class InstaboardViewFeed extends JView{
     function display($tpl = null){
-        $this->msg = 'Feed';
+        JToolBarHelper::title(JText::_('Instaboard', 'generic.png'));
+        JToolBarHelper::preferences('com_instaboard');
+        $model =& $this->getModel('feed');
+        $items =& $model->getImages();
+        $this->assignRef('items', $items);
         parent::display($tpl);
     }
 }

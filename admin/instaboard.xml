@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="component" method="upgrade">
-	<name>Component_InstaBoard</name>
+	<name>InstaBoard</name>
 	<author>Daniel Eliasson - joomla at stilero.com</author>
 	<creationDate>2012-okt-21</creationDate>
 	<copyright>Copyright (c) 2012-okt-21 Stilero Webdesign http://www.stilero.com. All rights reserved.</copyright>
@@ -9,6 +9,7 @@
 	<version>1.0</version>
 	<license>GPLv2</license>
 	<description>Description</description>
+        <!--
 	<install>
             <sql>
                 <file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
@@ -19,6 +20,7 @@
                 <file driver="mysql" charset="utf8">sql/uninstall.mysql.sql</file>
             </sql>
 	</uninstall>
+        -->
 	<!-- Standard plugin parameters for Joomla! 1.6+ -->
         <config>
             <fields name="params" addfieldpath="/plugins/content/instaboard/elements">
@@ -54,7 +56,8 @@
             <files folder="admin">
                     <!-- Admin Main File Copy Section -->
                     <filename>index.html</filename>
-                    <filename>instaboard.php</filename>
+                    <filename>config.xml</filename>
+                    <filename>admin.instaboard.php</filename>
                     <filename>controller.php</filename>
                     <folder>views</folder>
                     <folder>models</folder>
@@ -64,9 +67,9 @@
                     <folder>helpers</folder>
                     <folder>sql</folder>
             </files>
-            <languages folder="language">
-	       <language tag="en-GB">admin/language/en-GB.com_instaboard.ini</language>
-               <language tag="en-GB">admin/language/en-GB.com_instaboard.ini</language>
+            <languages>
+	       <language tag="en-GB">language/en-GB.com_instaboard.ini</language>
+               <language tag="en-GB">language/en-GB.com_instaboard.ini</language>
 	    </languages>
 	</administration>
 </extension>

@@ -36,7 +36,7 @@ define('INCLUDES_FOLDER', JPATH_COMPONENT_ADMINISTRATOR.'/includes/');
 define('INSTA_API', INCLUDES_FOLDER.'insta-api/');
 jimport('joomla.filesystem.file');
 //JHTML::addIncludePath(JPATH_COMPONENT.DS.'helpers');
-JLoader::register('Classhelper', JPATH_COMPONENT_ADMINISTRATOR.'helpers/classhelper.php');
+JLoader::register('Classhelper', JPATH_COMPONENT_ADMINISTRATOR.'/helpers/classhelper.php');
 Classhelper::loadMainClasses();
 Classhelper::loadEndpointClasses();
 require_once JPATH_COMPONENT.DS.'controller.php';
