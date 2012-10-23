@@ -1,10 +1,10 @@
 <?php
 /**
- * Feed Model
+ * Image Model
  *
  * @version  1.0
  * @author Daniel Eliasson - joomla at stilero.com
- * @copyright  (C) 2012-okt-21 Stilero Webdesign http://www.stilero.com
+ * @copyright  (C) 2012-okt-23 Stilero Webdesign http://www.stilero.com
  * @category Components
  * @subpackage {project.name}
  * @license	GPLv2
@@ -17,16 +17,15 @@ defined('_JEXEC') or die('Restricted access');
 // import Joomla modelitem library
 jimport('joomla.application.component.modelitem');
  
-class InstaboardModelFeed extends JModelItem
-{
-	
-    public function getImages(){
+class InstaboardModelImage extends JModelItem{
+
+    public function getImage($media_id){
         $params = & JComponentHelper::getParams('com_instaboard');
         $accessToken = $params->get('access_token');
-        $InstaMedia = new InstaUsers($accessToken);
-        $userFeed = $InstaMedia->getSelfFeed(50);
-        $feed = json_decode($userFeed);
-        $images = $feed->data;
-        return $images;
+        $InstaMedia = new InstaMedia($accessToken);
+        $data = $InstaMedia->getId($media_id);
+        $image = json_decode($data);
+        return $image->data;
     }
+    
 }

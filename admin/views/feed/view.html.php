@@ -17,9 +17,11 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.view');
 
 class InstaboardViewFeed extends JView{
+    
     function display($tpl = null){
-        JToolBarHelper::title(JText::_('Instaboard', 'generic.png'));
+        JToolBarHelper::title(JText::_('Feed', 'generic.png'));
         JToolBarHelper::preferences('com_instaboard');
+        JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/css/style.css');
         $model =& $this->getModel('feed');
         $items =& $model->getImages();
         $this->assignRef('items', $items);

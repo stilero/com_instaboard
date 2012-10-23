@@ -38,4 +38,22 @@ class InstaEmbeddings extends InstaEndpoint{
                 .'?'.http_build_query($params);
         return $this->query();
     }
+    /**
+     * Given a shorlink, returns the image source url.
+     * @param string $url Instagram Short URL
+     * @return string Image source url
+     */
+    public static function getImageFromUrl($url){
+        $params = array(
+            'url' => $url
+        );
+        $url = self::$endpointUrl;
+        $communicator = new Communicator($url, $params);
+        $response = $communicator->query();
+        var_dump($response);exit;
+
+        $data = json_decode($response);
+        $imgSrc = $data->link;
+        return $imgSrc;
+    }
 }

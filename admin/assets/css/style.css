@@ -1,0 +1,41 @@
+/* 
+    Document   : style
+    Created on : 2012-okt-23, 12:11:04
+    Author     : Daniel Eliasson - joomla at stilero.com
+    Description:
+        Styling for Joomla component InstaBoard.
+*/
+#feed{
+    display:block;
+}
+#feed_footer{
+    clear: both;
+}
+.feed_item{
+    width: 326px;
+    height:420px;
+    display:block;
+    margin:20px;
+    float: left;
+}
+.feed_item .caption{
+    display: block;
+    height:25px;
+}
+.feed_item .caption .created, .feed_item .caption .from, .feed_item .caption .profile_picture{
+    height: 20px;
+    vertical-align: middle;
+}
+.feed_item .caption .created{
+    float: right;
+}
+
+.feed_item .feed_image{
+    clear: both;
+    border:10px solid white;
+}
+
+.feed_item .likes, .feed_item .image_text, .feed_item .comments{
+    margin: 1em 0;
+}
+

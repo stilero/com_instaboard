@@ -10,10 +10,34 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 ?>
+<div id="feed">
 <?php foreach ($this->items as $item) : ?>
-    <?php
-        $InstaEmbed = new InstaEmbeddings();
-        $embeddings = json_decode($InstaEmbed->getOembeded($item->link));
-    ?>
-    <img src="<?php echo $embeddings->url; ?>" />
+    <div class="feed_item">
+        <div class="caption">
+            <span class="from">
+                    <img class="profile_picture" src="<?php echo $item->caption->from->profile_picture; ?>" width="20" height="20" />
+                <span class="username"><?php echo $item->caption->from->username; ?></span>
+            </span>
+            <span class="created">
+                <?php echo Boardhelper::timeToText($item->caption->created_time); ?>
+            </span>
+        </div>
+        <a class="modal" href="index.php?option=com_instaboard&amp;view=image&amp;format=raw&amp;id=<?php echo $item->id; ?>" rel="{handler: 'iframe', size: {x: 875, y: 550}, onClose: function() {}}">
+            <img class="feed_image" src="<?php echo $item->images->low_resolution->url; ?>" />
+        </a>
+        <div class="likes">
+            <?php echo $item->likes->count; ?> likes
+        </div>
+        <div class="image_text">
+            <?php //echo JHtmlString::truncate($item->caption->text, 90, true, false); ?>
+            <?php echo $item->caption->text; ?>
+        </div>
+        <div class="comments">
+            <span class="count">
+                <?php echo $item->comments->count; ?> comments
+            </span>
+        </div>
+    </div>
 <?php endforeach; ?>
+    <div id="feed_footer">Test</div>
+</div>
