@@ -37,4 +37,13 @@ class Boardhelper{
             return floor($diff/self::DAY_IN_SEC).self::DAY;
         }
     }
+    /**
+     * Replaces #tags and @users with Links and labels.
+     * @param string $text
+     * @return string Transformed text
+     */
+    public static function transformTagsAndUsers($text){
+        return $text;
+    }
+            
 }

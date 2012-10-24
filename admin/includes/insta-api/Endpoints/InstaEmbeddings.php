@@ -49,9 +49,8 @@ class InstaEmbeddings extends InstaEndpoint{
         );
         $url = self::$endpointUrl;
         $communicator = new Communicator($url, $params);
-        $response = $communicator->query();
-        var_dump($response);exit;
-
+        $communicator->query();
+        $response = $communicator->getResponse();
         $data = json_decode($response);
         $imgSrc = $data->link;
         return $imgSrc;

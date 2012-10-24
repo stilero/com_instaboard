@@ -15,11 +15,11 @@ defined('_JEXEC') or die('Restricted access');
     <div class="feed_item">
         <div class="caption">
             <span class="from">
-                    <img class="profile_picture" src="<?php echo $item->caption->from->profile_picture; ?>" width="20" height="20" />
-                <span class="username"><?php echo $item->caption->from->username; ?></span>
+                   <img class="profile_picture" src="<?php echo $item->user->profile_picture; ?>" width="20" height="20" />
+                <span class="username"><?php echo $item->user->username; ?></span>
             </span>
             <span class="created">
-                <?php echo Boardhelper::timeToText($item->caption->created_time); ?>
+                <?php echo Boardhelper::timeToText($item->created_time); ?>
             </span>
         </div>
         <a class="modal" href="index.php?option=com_instaboard&amp;view=image&amp;format=raw&amp;id=<?php echo $item->id; ?>" rel="{handler: 'iframe', size: {x: 875, y: 550}, onClose: function() {}}">
@@ -29,8 +29,9 @@ defined('_JEXEC') or die('Restricted access');
             <?php echo $item->likes->count; ?> likes
         </div>
         <div class="image_text">
-            <?php //echo JHtmlString::truncate($item->caption->text, 90, true, false); ?>
+            <? if(isset($item->caption->text)) : ?>
             <?php echo $item->caption->text; ?>
+            <?php endif; ?>
         </div>
         <div class="comments">
             <span class="count">

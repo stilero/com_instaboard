@@ -38,6 +38,7 @@ jimport('joomla.filesystem.file');
 //JHTML::addIncludePath(JPATH_COMPONENT.DS.'helpers');
 JLoader::register('Classhelper', JPATH_COMPONENT_ADMINISTRATOR.'/helpers/classhelper.php');
 JLoader::register('Boardhelper', JPATH_COMPONENT_ADMINISTRATOR.'/helpers/boardhelper.php');
+JLoader::register('Mapshelper', JPATH_COMPONENT_ADMINISTRATOR.'/helpers/mapshelper.php');
 JLoader::register('JHTMLString', JPATH_ROOT.'/libraries/joomla/html/html/string.php');
 Classhelper::loadMainClasses();
 Classhelper::loadEndpointClasses();
