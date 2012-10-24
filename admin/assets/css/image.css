@@ -10,7 +10,7 @@ body{
 }
 
 .detailitem, .detailitem .comment{
-    padding: 1em 0;
+    padding: 0.5em 0;
     border-bottom: 1px solid #eee;
     clear:left;
 }

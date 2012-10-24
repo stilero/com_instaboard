@@ -18,20 +18,7 @@ $locationHTML = '';
 if($hasLocation){
     $lat = $this->image->location->latitude;
     $long = $this->image->location->longitude;
-    $address = '';
-    $locInfo = Mapshelper::getInfoFromCoordinates($lat, $long);
-    $hasfoundAdress = false;
-    if(isset($locInfo->Placemark[0]->AddressDetails->Country->AdministrativeArea->Locality->LocalityName)){
-        $address = $locInfo->Placemark[0]->AddressDetails->Country->AdministrativeArea->Locality->LocalityName;
-        $hasfoundAdress = true;
-    }
-    if(isset($locInfo->Placemark[0]->AddressDetails->Locality->LocalityName) && !$hasfoundAdress){
-        $address = $locInfo->Placemark[0]->AddressDetails->Locality->LocalityName;
-        $hasfoundAdress = true;
-    }
-    if(isset($locInfo->Placemark[0]->AddressDetails->Country->Locality->LocalityName) && !$hasfoundAdress){
-        $address = $locInfo->Placemark[0]->AddressDetails->Country->Locality->LocalityName;
-    }
+    $address = Mapshelper::getLocationNameFromCoordinates($lat, $long);
     $locationHTML = '<i class="icon-map-marker"></i> ';
     $locationHTML .= '<a href="'.Mapshelper::getMapsUrl($lat, $long).'" target="_blank">';
     $locationHTML .= $address;

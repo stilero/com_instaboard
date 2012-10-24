@@ -19,7 +19,6 @@ jimport('joomla.application.component.view');
 class InstaboardViewImage extends JView{
     
     function display($tpl = null){
-        
         $model =& $this->getModel('image');
         $image_id = JRequest::getCmd('id');
         $image =& $model->getImage($image_id);

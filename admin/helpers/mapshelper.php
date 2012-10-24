@@ -36,6 +36,28 @@ class Mapshelper{
         return $info;
     }
     
+    public static function getLocationNameFromCoordinates($lat, $long, $output='json'){
+        $info = self::getInfoFromCoordinates($lat, $long, $output);
+        $address = '';
+        $hasfoundAdress = false;
+        if(isset($info->Placemark[0]->AddressDetails->Country->AdministrativeArea->Locality->LocalityName)){
+            $address = $info->Placemark[0]->AddressDetails->Country->AdministrativeArea->Locality->LocalityName;
+            $hasfoundAdress = true;
+        }
+                if(isset($info->Placemark[0]->AddressDetails->Locality->LocalityName) && !$hasfoundAdress){
+            $address = $info->Placemark[0]->AddressDetails->Locality->LocalityName;
+            $hasfoundAdress = true;
+        }
+        if(isset($info->Placemark[0]->AddressDetails->Country->Locality->LocalityName) && !$hasfoundAdress){
+            $address = $info->Placemark[0]->AddressDetails->Country->Locality->LocalityName;
+        }
+        if(isset($info->Placemark[0]->AddressDetails->Country->AdministrativeArea->AdministrativeAreaName)){
+            $address = $info->Placemark[0]->AddressDetails->Country->AdministrativeArea->AdministrativeAreaName;
+            $hasfoundAdress = true;
+        }
+        return $address;
+    }
+    
     /**
      * Returns an url to Google Maps, given coordinates
      * @param float $lat Latitude
