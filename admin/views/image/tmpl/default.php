@@ -26,6 +26,8 @@ defined('_JEXEC') or die('Restricted access');
     <body>
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/bootstrap/js/bootstrap.min.js'; ?>"></script>
+        <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/js/dialog.js'; ?>"></script>
+        <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/js/like.js'; ?>"></script>
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span7">
@@ -44,11 +46,11 @@ defined('_JEXEC') or die('Restricted access');
                     <div class="info detailitem">
                         <?php echo $this->loadTemplate('info'); ?>
                     </div>
-                    <div class="tags detailitem">
-                        <?php echo $this->loadTemplate('tags'); ?>
-                    </div>
                     <div class="text detailitem">
                         <?php echo $this->loadTemplate('text'); ?>
+                    </div>
+                    <div class="tags detailitem">
+                        <?php echo $this->loadTemplate('tags'); ?>
                     </div>
                     <div class="likes detailitem">
                         <?php echo $this->loadTemplate('likes'); ?>

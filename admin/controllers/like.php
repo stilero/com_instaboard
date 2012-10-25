@@ -34,14 +34,14 @@ class InstaboardControllerLike extends JController{
         $view =& $this->getView( self::$viewName, 'raw' );
         $model =& $this->getModel(  self::$modelName );
         $view->setModel( $model, true );
-        $view->display();
+        $view->like();
     }
     
     public function unlike(){
         $view =& $this->getView( self::$viewName, 'raw' );
         $model =& $this->getModel(  self::$modelName );
         $view->setModel( $model, true );
-        $view->display();
+        $view->unlike();
     }
     
     public function edit(){

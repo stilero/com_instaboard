@@ -23,15 +23,10 @@ defined('_JEXEC') or die('Restricted access');
             </span>
         </div>
         <a class="modal" href="index.php?option=com_instaboard&amp;view=image&amp;format=raw&amp;id=<?php echo $item->id; ?>" rel="{handler: 'iframe', size: {x: 875, y: 550}, onClose: function() {}}">
-            <img class="feed_image" src="<?php echo $item->images->low_resolution->url; ?>" />
+            <img class="feed_image" src="<?php echo $item->images->thumbnail->url; ?>" />
         </a>
         <div class="likes">
             <?php echo $item->likes->count; ?> likes
-        </div>
-        <div class="image_text">
-            <? if(isset($item->caption->text)) : ?>
-            <?php echo $item->caption->text; ?>
-            <?php endif; ?>
         </div>
         <div class="comments">
             <span class="count">

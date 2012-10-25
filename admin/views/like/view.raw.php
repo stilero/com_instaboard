@@ -18,15 +18,20 @@ jimport('joomla.application.component.view');
 
 class InstaboardViewLike extends JView{
     function display($tpl = null){
+        return; 
+    }
+    
+    function like($tpl = null){
         $model =& $this->getModel('like');
         $image_id = JRequest::getCmd('id');
-        if(JRequest::getCmd('task', 'like') == 'like'){
-            $this->response =& $model->likeMedia($image_id);
-        }else{
-            $this->response =& $model->unlikeMedia($image_id);
-        }
-        
-        //$this->assignRef('response', $response);
+        $this->response =& $model->likeMedia($image_id);
+        parent::display($tpl);
+    }
+    
+    function unlike($tpl = null){
+        $model =& $this->getModel('like');
+        $image_id = JRequest::getCmd('id');
+        $this->response =& $model->unlikeMedia($image_id);
         parent::display($tpl);
     }
 }
