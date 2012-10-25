@@ -13,10 +13,15 @@
 
 // no direct access
 defined('_JEXEC') or die('Restricted access'); ?>
-<form>
+<form id="commentform" name="commentform" action="">
     <legend>Add Comment</legend>
     <label>Comment</label>
-    <textarea class="span12" rows="5"></textarea>
-    </label>
+        <textarea name="comment" id="comment" class="span12" rows="5"></textarea>
     <button type="submit" class="btn">Submit</button>
+    <input type="hidden" name="media_id" value="<?php echo $this->image->id; ?>" />
+    <input type="hidden" name="option" value="com_instaboard" />
+    <input type="hidden" name="view" value="comment" />
+    <input type="hidden" name="format" value="raw" />
+    <input type="hidden" name="task" value="postComment" />
+    <?php echo JHTML::_( 'form.token' ); ?>
 </form>

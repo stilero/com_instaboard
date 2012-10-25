@@ -4,22 +4,19 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 jQuery(function($){
-    $('#likebtn').click(function(){
-        var task = $('input[name=liketask]').val();
-        var image_id = $('input[name=likeid]').val();
-        
-        var params = {
-            option: 'com_instaboard',
-            view: 'like',
-            format: 'raw',
-            task: task,
-            id: image_id
-         };
+    
+    var hideForm = function(){
+        $('#commentform').fadeOut();
+    }
+    
+    $('#commentform').submit(function(e){
+        e.preventDefault();
+        var params = $('#commentform').serialize();
     
         $.getJSON('index.php', params, function(data){
             if(data.meta.code == '200'){
-                showSuccess('<strong>Success!</strong> image '+task+'d.', '#likedialog');
-                setBtn(task);
+                showSuccess('<strong>Success!</strong> Comment sent', '#likedialog');
+                hideForm();
             }else{
                 showWarning('<strong>Warning!</strong> Instagram not responding.', '#likedialog');
             }
@@ -27,4 +24,5 @@ jQuery(function($){
             showError('<strong>Error!</strong> server error occured.', '#likedialog');
         });
     });
+    
 });

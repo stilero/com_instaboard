@@ -12,7 +12,8 @@
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
- 
+//JRequest::checkToken() or die( 'Invalid Token' );
+
 // import Joomla view library
 jimport('joomla.application.component.view');
 
@@ -22,8 +23,8 @@ class InstaboardViewComment extends JView{
         return; 
     }
     
-    function comment($tpl = null){
-        $model =& $this->getModel('like');
+    function postComment($tpl = null){
+        $model =& $this->getModel('comment');
         $media_id = JRequest::getCmd('media_id');
         $comment = JRequest::getString('comment');
         $this->response =& $model->postComment($media_id, $comment);
