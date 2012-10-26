@@ -12,7 +12,7 @@
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
- 
+JRequest::checkToken('get') or die( 'Invalid Token' ); 
 // import Joomla view library
 jimport('joomla.application.component.view');
 

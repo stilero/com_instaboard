@@ -22,7 +22,7 @@ defined('_JEXEC') or die('Restricted access');
                 <?php echo Boardhelper::timeToText($item->created_time); ?>
             </span>
         </div>
-        <a class="modal" href="index.php?option=com_instaboard&amp;view=image&amp;format=raw&amp;id=<?php echo $item->id; ?>" rel="{handler: 'iframe', size: {x: 875, y: 750}, onClose: function() {}}">
+        <a class="modal" href="index.php?option=com_instaboard&amp;view=image&amp;format=raw&amp;<?php echo JUtility::getToken() ?>=1&amp;id=<?php echo $item->id; ?>" rel="{handler: 'iframe', size: {x: 875, y: 750}, onClose: function() {}}">
             <img class="feed_image" src="<?php echo $item->images->thumbnail->url; ?>" />
         </a>
         <div class="likes">
