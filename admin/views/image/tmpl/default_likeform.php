@@ -27,9 +27,13 @@ if($this->image->user_has_liked == '1'){
 <div class="row-fluid">
     <div class="span4">
         <form id="likeform" name="like">
-            <button id="likebtn" class="btn btn-large <?php echo $btnClass; ?>" type="button"><i class="<?php echo $btnIcon; ?> icon-white"></i> <span><?php echo $btnLabel; ?></span></button>
-            <input type="hidden" name="likeid" value="<?php echo $this->image->id; ?>" />
-            <input type="hidden" name="liketask" value="<?php echo $btnAction; ?>" />
+            <button type="submit" id="likebtn" class="btn btn-large <?php echo $btnClass; ?>" type="button"><i class="<?php echo $btnIcon; ?> icon-white"></i> <span><?php echo $btnLabel; ?></span></button>
+            <input type="hidden" name="option" value="com_instaboard" />
+            <input type="hidden" name="view" value="like" />
+            <input type="hidden" name="format" value="raw" />
+            <input type="hidden" name="task" value="<?php echo $btnAction; ?>" />
+            <input type="hidden" name="media_id" value="<?php echo $this->image->id; ?>" />
+            <?php echo JHTML::_( 'form.token' ); ?>
         </form>
     </div>
     <div class="span8">

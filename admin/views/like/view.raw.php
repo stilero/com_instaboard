@@ -12,6 +12,7 @@
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
+JRequest::checkToken('get') or die( 'Invalid Token' );
  
 // import Joomla view library
 jimport('joomla.application.component.view');
@@ -23,14 +24,14 @@ class InstaboardViewLike extends JView{
     
     function like($tpl = null){
         $model =& $this->getModel('like');
-        $image_id = JRequest::getCmd('id');
+        $image_id = JRequest::getCmd('media_id');
         $this->response =& $model->likeMedia($image_id);
         parent::display($tpl);
     }
     
     function unlike($tpl = null){
         $model =& $this->getModel('like');
-        $image_id = JRequest::getCmd('id');
+        $image_id = JRequest::getCmd('media_id');
         $this->response =& $model->unlikeMedia($image_id);
         parent::display($tpl);
     }

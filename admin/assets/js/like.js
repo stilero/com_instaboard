@@ -30,22 +30,15 @@ jQuery(function($){
         }
     };
     
-    $('#likebtn').click(function(){
-        var task = $('input[name=liketask]').val();
-        var image_id = $('input[name=likeid]').val();
-        
-        var params = {
-            option: 'com_instaboard',
-            view: 'like',
-            format: 'raw',
-            task: task,
-            id: image_id
-         };
+    $('#likeform').submit(function(e){
+        e.preventDefault();
+        var params = $('#likeform').serialize();
     
         $.getJSON('index.php', params, function(data){
             if(data.meta.code == '200'){
-                showSuccess('<strong>Success!</strong> image '+task+'d.', '#likedialog');
-                setBtn(task);
+                console.debug("debug"); 
+                showSuccess('<strong>Success!</strong> image '+params['task']+'d.', '#likedialog');
+                setBtn(params['task']);
             }else{
                 showWarning('<strong>Warning!</strong> Instagram not responding.', '#likedialog');
             }
