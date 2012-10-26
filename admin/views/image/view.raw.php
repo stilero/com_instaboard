@@ -23,6 +23,9 @@ class InstaboardViewImage extends JView{
         $image_id = JRequest::getCmd('id');
         $image =& $model->getImage($image_id);
         $this->assignRef('image', $image);
+        $relationsModel =& $this->getModel('relationship');
+        $isFollowing = $relationsModel->isFollowing($image->user->id);
+        $this->assignRef('isFollowing', $isFollowing);
         parent::display($tpl);
     }
 }

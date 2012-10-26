@@ -26,6 +26,8 @@ class InstaboardControllerImage extends JController{
         $view =& $this->getView( self::$viewName, 'raw' );
         $model =& $this->getModel(  self::$modelName );
         $view->setModel( $model, true );
+        $relationsModel =& $this->getModel('relationship' );
+        $view->setModel( $relationsModel, false);
         $view->display();
     }
 }

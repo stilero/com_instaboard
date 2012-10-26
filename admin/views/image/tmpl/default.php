@@ -29,6 +29,7 @@ defined('_JEXEC') or die('Restricted access');
         <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/js/dialog.js'; ?>"></script>
         <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/js/like.js'; ?>"></script>
         <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/js/comment.js'; ?>"></script>
+        <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/js/relationship.js'; ?>"></script>
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span7">

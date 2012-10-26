@@ -13,6 +13,31 @@
 
 // no direct access
 defined('_JEXEC') or die('Restricted access'); 
+$btnClass = 'btn-info';
+$btnIcon = 'icon-star';
+$btnLabel = 'Follow';
+$btnAction = 'follow';
+if($this->isFollowing == true){
+    $btnClass = 'btn-danger';
+    $btnIcon = 'icon-star-empty';
+    $btnLabel = 'Unfollow';
+    $btnAction = 'unfollow';
+}
 ?>
-<img src="<?php echo $this->image->user->profile_picture; ?>" class="img-polaroid" />
-<span class="username"><?php echo $this->image->user->username; ?></span>
+<div class="row-fluid">
+    <div class="span6">
+        <img src="<?php echo $this->image->user->profile_picture; ?>" class="img-polaroid" />
+    </div>
+    <div class="span5">
+        <span class="username"><?php echo $this->image->user->username; ?></span>
+        <form id="relationform" name="relationform">
+            <button type="submit" id="relationbtn" class="btn <?php echo $btnClass; ?>" type="button"><i class="<?php echo $btnIcon; ?> icon-white"></i> <span><?php echo $btnLabel; ?></span></button>
+            <input type="hidden" name="option" value="com_instaboard" />
+            <input type="hidden" name="view" value="relationship" />
+            <input type="hidden" name="format" value="raw" />
+            <input type="hidden" name="task" value="<?php echo $btnAction; ?>" />
+            <input type="hidden" name="user_id" value="<?php echo $this->image->user->id; ?>" />
+            <?php echo JHTML::_( 'form.token' ); ?>
+        </form>
+    </div>
+</div>
