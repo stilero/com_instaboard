@@ -16,11 +16,11 @@ defined('_JEXEC') or die('Restricted access');
 
 class InstaUsers extends InstaEndpoint{
     
-    private static $endpointUrl = 'users/';
+    private static $_url = 'https://api.instagram.com/v1/users/';
     
     public function __construct($accessToken) {
         parent::__construct($accessToken);
-        $this->requestUrl = $this->requestUrl.self::$endpointUrl;
+        //$this->requestUrl = $this->requestUrl.self::$endpointUrl;
     }
     /**
      * Get basic information about a user. 
@@ -28,7 +28,7 @@ class InstaUsers extends InstaEndpoint{
      * @return string json
      */
     public function getUserInfo($user_id){
-        $this->requestUrl = $this->requestUrl.$user_id.'/'
+        $this->requestUrl = self::$_url.$user_id.'/'
                 .'?access_token='.$this->accessToken;
         $restponse = $this->query();
         return $restponse;
@@ -46,7 +46,7 @@ class InstaUsers extends InstaEndpoint{
             'min_id' => $min_id,
             'max_id' => $max_id
         );
-        $this->requestUrl = $this->requestUrl.'self/feed/'
+        $this->requestUrl = self::$_url.'self/feed/'
                 .'?access_token='.$this->accessToken
                 .'&'.http_build_query($params);
         return $this->query();
@@ -68,7 +68,7 @@ class InstaUsers extends InstaEndpoint{
             'min_id' => $min_id,
             'max_id' => $max_id
         );
-        $this->requestUrl = $this->requestUrl.$userid.'/media/recent/'
+        $this->requestUrl = self::$_url.$userid.'/media/recent/'
                 .'?access_token='.$this->accessToken
                 .'&'.http_build_query($params);
         return $this->query();
@@ -86,7 +86,7 @@ class InstaUsers extends InstaEndpoint{
             'count' => $count,
             'max_like_id' => $max_like_id
         );
-        $this->requestUrl = $this->requestUrl.'self/media/liked/'
+        $this->requestUrl = self::$_url.'self/media/liked/'
                 .'?access_token='.$this->accessToken
                 .'&'.http_build_query($params);
         return $this->query();
@@ -101,7 +101,7 @@ class InstaUsers extends InstaEndpoint{
             'q' => $query,
             'count' => $count
         );
-        $this->requestUrl = $this->requestUrl.'search/'
+        $this->requestUrl = self::$_url.'search/'
                 .'?access_token='.$this->accessToken
                 .'&'.http_build_query($params);
         return $this->query();

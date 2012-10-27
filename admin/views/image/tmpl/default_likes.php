@@ -24,7 +24,7 @@ if($remainCount > 0){
 <i class="icon-heart"></i> <?php echo $this->image->likes->count; ?> Likes
 <?php foreach ($this->image->likes->data as $like) : ?>
     <div class="like">
-        <span class="label label-success"><i class="icon-user icon-white"></i> <?php echo $like->username; ?></span>
+        <span class="label label-success"><a href="index.php?option=com_instaboard&view=user&format=raw&user_id=<?php echo $like->id; ?>"><i class="icon-user icon-white"></i> <?php echo $like->username; ?></a></span>
     </div>
     <? if($i++ == $maxCount) { break; }?>
 <?php endforeach; ?>

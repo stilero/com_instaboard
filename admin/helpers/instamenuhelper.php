@@ -12,6 +12,22 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access'); 
 
-class AdminListHelper{
+class Instamenuhelper{
     
+    private static $_compOption = 'com_instaboard';
+    
+    public static function addSubmenu($vName = 'feed'){
+        
+        JSubMenuHelper::addEntry(
+            JText::_('Feed'),
+            'index.php?option='.self::$_compOption.'&view=feed',
+            ($vName == 'feed')
+        );
+        
+        JSubMenuHelper::addEntry(
+            JText::_('User'),
+            'index.php?option='.self::$_compOption.'&view=user',
+            ($vName == 'user')
+        );
+    }
 }

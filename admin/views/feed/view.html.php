@@ -19,8 +19,9 @@ jimport('joomla.application.component.view');
 class InstaboardViewFeed extends JView{
     
     function display($tpl = null){
-        JToolBarHelper::title(JText::_('Feed', 'generic.png'));
+        JToolBarHelper::title(JText::_('Feed'), 'newsfeeds');
         JToolBarHelper::preferences('com_instaboard');
+        Instamenuhelper::addSubmenu('feed');
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/css/style.css');
         $model =& $this->getModel('feed');
         $items =& $model->getImages();

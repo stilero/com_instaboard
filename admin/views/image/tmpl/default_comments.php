@@ -26,11 +26,11 @@ if($remainCount > 0){
     <div class="comment">
             <div class="row-fluid">
                 <div class="span4">
-                    <img src="<?php echo $comment->from->profile_picture; ?>" class="img-polaroid" width="60" height="60" />
+                    <a href="index.php?option=com_instaboard&view=user&format=raw&user_id=<?php echo $comment->from->id; ?>"><img src="<?php echo $comment->from->profile_picture; ?>" class="img-polaroid" width="60" height="60" /></a>
                 </div>
                 <div class="span8">
                     <div class="username">
-                        <?php echo $comment->from->username; ?>
+                        <a href="index.php?option=com_instaboard&view=userformat=raw&&user_id=<?php echo $comment->from->id; ?>"><?php echo $comment->from->username; ?></a>
                     </div>
                     <div class="date">
                         <?php echo Boardhelper::timeToText($comment->created_time); ?>

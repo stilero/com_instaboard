@@ -17,14 +17,20 @@ defined('_JEXEC') or die('Restricted access');
 // import Joomla view library
 jimport('joomla.application.component.view');
 
-class InstaboardViewSelf extends JView{
+class InstaboardViewUser extends JView{
+    
     function display($tpl = null){
-        JToolBarHelper::title(JText::_('Feed', 'generic.png'));
         JToolBarHelper::preferences('com_instaboard');
+        Instamenuhelper::addSubmenu('user');
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/css/style.css');
-        $model =& $this->getModel('self');
-        $items =& $model->getImages();
-        $this->assignRef('items', $items);
+        $model =& $this->getModel();
+        $user_id = JRequest::getVar('user_id', 'self');
+        $images =& $model->getImages($user_id);
+        $user =& $model->getUserInfo($user_id);
+        JToolBarHelper::title($user->username, 'user');
+        $this->assignRef('images', $images);
+        $this->assignRef('user', $user);
         parent::display($tpl);
     }
+    
 }
