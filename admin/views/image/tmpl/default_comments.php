@@ -15,7 +15,7 @@
 defined('_JEXEC') or die('Restricted access'); 
 $maxCount = 10;
 $i = 0;
-$remainCount = $this->image->likes->count - $maxCount;
+$remainCount = $this->image->comments->count - $maxCount;
 $remainHTML = '';
 if($remainCount > 0){
     $remainHTML = '<span class="label label-info"><i class="icon-chevron-right icon-white"></i> see '.$remainCount.' more</span>';
