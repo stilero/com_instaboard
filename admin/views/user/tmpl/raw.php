@@ -32,18 +32,32 @@ defined('_JEXEC') or die('Restricted access');
         <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/js/relationship.js'; ?>"></script>
         <div class="container-fluid">
             <div class="row-fluid well">
-                <div class="span2">
-                    <img src="<?php echo $this->user->profile_picture; ?>" />
-                    <?php echo $this->loadTemplate('follow'); ?>
+                <div class="span3">
+                    <div class="row">
+                         <div class="span12">
+                        <img src="<?php echo $this->user->profile_picture; ?>" class="img-polaroid" />
+                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="span12">
+                        <?php echo $this->loadTemplate('follow'); ?>
+                    </div>
+                    </div>
                 </div>
-                <div class="span10">
+                <div class="span9">
                     <?php echo $this->loadTemplate('profile'); ?>
                 </div>
             </div>
-            <div class="row-fluid">
-                <div class="span12">
-                
-                </div>
+            <div class="row">
+                <ul class="thumbnails">
+                    <?php foreach ($this->images as $image) : ?>
+                        <li class="span2">
+                            <div class="thumbnail">
+                                <a href="index.php?option=com_instaboard&view=image&format=raw&id=<?php echo $image->id.'&'.JUtility::getToken() .'=1';?>"><img src="<?php echo $image->images->thumbnail->url; ?>" alt=""></a>
+                            </div>             
+                        </li>
+                    <? endforeach; ?>
+                </ul>
             </div>
         </div>
     </body>

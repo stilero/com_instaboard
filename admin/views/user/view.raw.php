@@ -24,9 +24,8 @@ class InstaboardViewUser extends JView{
         $images =& $model->getImages($user_id);
         $user =& $model->getUserInfo($user_id);
         $relationsModel =& $this->getModel('relationship');
-        //$isFollowing = $relationsModel->isFollowing($images->user->id);
-        $isFollowing = true;
-        $this->isFollowing = true;
+        $isFollowing = $relationsModel->isFollowing($user_id);
+        $this->isFollowing = $isFollowing;
         $this->assignRef('images', $images);
         $this->assignRef('user', $user);
         parent::display();

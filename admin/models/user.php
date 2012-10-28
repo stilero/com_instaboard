@@ -30,14 +30,22 @@ class InstaboardModelUser extends JModel{
     public function getImages($user_id){
         $userFeed = $this->_EndPoint->getUserIdMediaRecent($user_id, 50);
         $feed = json_decode($userFeed);
-        $images = $feed->data;
+        $images = null;
+        if($feed->meta->code == '200'){
+            $images = $feed->data;
+        }
         return $images;
     }
     
     public function getUserInfo($user_id){
         $json = $this->_EndPoint->getUserInfo($user_id);
         $info = json_decode($json);
-        return $info->data;
+        $userInfo = null;
+        if($info->meta->code == '200'){
+            $userInfo = $info->data;
+        }
+        return $userInfo;
+        
     }
     
 }

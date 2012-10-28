@@ -30,7 +30,7 @@ if($remainCount > 0){
                 </div>
                 <div class="span8">
                     <div class="username">
-                        <a href="index.php?option=com_instaboard&view=userformat=raw&&user_id=<?php echo $comment->from->id; ?>"><?php echo $comment->from->username; ?></a>
+                        <a href="index.php?option=com_instaboard&view=user&format=raw&user_id=<?php echo $comment->from->id; ?>"><?php echo $comment->from->username; ?></a>
                     </div>
                     <div class="date">
                         <?php echo Boardhelper::timeToText($comment->created_time); ?>

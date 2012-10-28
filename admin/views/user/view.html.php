@@ -27,6 +27,9 @@ class InstaboardViewUser extends JView{
         $user_id = JRequest::getVar('user_id', 'self');
         $images =& $model->getImages($user_id);
         $user =& $model->getUserInfo($user_id);
+        $relationsModel =& $this->getModel('relationship');
+        $isFollowing = $relationsModel->isFollowing($user_id);
+        $this->isFollowing = $isFollowing;
         JToolBarHelper::title($user->username, 'user');
         $this->assignRef('images', $images);
         $this->assignRef('user', $user);
