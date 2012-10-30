@@ -10,30 +10,26 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 ?>
-<div id="feed">
+<ul class="thumbnails">
 <?php foreach ($this->items as $item) : ?>
-    <div class="feed_item">
-        <div class="caption">
-            <span class="from">
-                   <img class="profile_picture" src="<?php echo $item->user->profile_picture; ?>" width="20" height="20" />
-                <span class="username"><?php echo $item->user->username; ?></span>
-            </span>
-            <span class="created">
-                <?php echo Boardhelper::timeToText($item->created_time); ?>
-            </span>
+    <li>
+        <div class="thumbnail">
+            <h3>
+                <a class="modal" href="index.php?option=com_instaboard&amp;view=user&amp;format=raw&amp;<?php echo JUtility::getToken() ?>=1&amp;user_id=<?php echo $item->user->id; ?>" rel="{handler: 'iframe', size: {x: 875, y: 750}, onClose: function() {}}">
+                    <img class="profile_picture" src="<?php echo $item->user->profile_picture; ?>" width="20" height="20" /> 
+                        <?php echo $item->user->username; ?>
+                </a>
+            </h3>
+            <a class="modal" href="index.php?option=com_instaboard&amp;view=image&amp;format=raw&amp;<?php echo JUtility::getToken() ?>=1&amp;id=<?php echo $item->id; ?>" rel="{handler: 'iframe', size: {x: 875, y: 750}, onClose: function() {}}">
+                    <img class="feed_image" src="<?php echo $item->images->thumbnail->url; ?>" />
+                </a>
+            
+            <p>
+                <i class="icon-time"></i><?php echo Boardhelper::timeToText($item->created_time); ?> 
+                <i class="icon-heart"></i><?php echo $item->likes->count; ?> 
+                <i class="icon-comment"></i><?php echo $item->comments->count; ?>
+            </p>
         </div>
-        <a class="modal" href="index.php?option=com_instaboard&amp;view=image&amp;format=raw&amp;<?php echo JUtility::getToken() ?>=1&amp;id=<?php echo $item->id; ?>" rel="{handler: 'iframe', size: {x: 875, y: 750}, onClose: function() {}}">
-            <img class="feed_image" src="<?php echo $item->images->thumbnail->url; ?>" />
-        </a>
-        <div class="likes">
-            <?php echo $item->likes->count; ?> likes
-        </div>
-        <div class="comments">
-            <span class="count">
-                <?php echo $item->comments->count; ?> comments
-            </span>
-        </div>
-    </div>
+    </li>
 <?php endforeach; ?>
-    <div id="feed_footer">Test</div>
-</div>
+</ul>

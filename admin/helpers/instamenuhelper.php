@@ -29,5 +29,17 @@ class Instamenuhelper{
             'index.php?option='.self::$_compOption.'&view=user',
             ($vName == 'user')
         );
+        
+        JSubMenuHelper::addEntry(
+            JText::_('Follows'),
+            'index.php?option='.self::$_compOption.'&view=follows&task=follows',
+            ($vName == 'follows')
+        );
+        
+        JSubMenuHelper::addEntry(
+            JText::_('Followed By'),
+            'index.php?option='.self::$_compOption.'&view=follows&task=followedBy',
+            ($vName == 'followedBy')
+        );
     }
 }

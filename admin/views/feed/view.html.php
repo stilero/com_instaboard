@@ -22,7 +22,11 @@ class InstaboardViewFeed extends JView{
         JToolBarHelper::title(JText::_('Feed'), 'newsfeeds');
         JToolBarHelper::preferences('com_instaboard');
         Instamenuhelper::addSubmenu('feed');
-        JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/css/style.css');
+        //JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/css/style.css');
+        JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-grid.min.css');
+        JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-icon.min.css');
+        JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-thumbs.min.css');
+        JHTML::_('behavior.modal'); 
         $model =& $this->getModel('feed');
         $items =& $model->getImages();
         $this->assignRef('items', $items);

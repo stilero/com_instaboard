@@ -71,5 +71,4 @@ class InstaboardControllerRelationship extends JController{
         $view->deny();
     }
     
-    
 }
