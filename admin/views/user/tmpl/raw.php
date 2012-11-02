@@ -54,6 +54,11 @@ defined('_JEXEC') or die('Restricted access');
                         <li class="span2">
                             <div class="thumbnail">
                                 <a href="index.php?option=com_instaboard&view=image&format=raw&id=<?php echo $image->id.'&'.JUtility::getToken() .'=1';?>"><img src="<?php echo $image->images->thumbnail->url; ?>" alt=""></a>
+                                <p>
+                                    <i class="icon-time"></i><?php echo Boardhelper::timeToText($image->created_time); ?> 
+                                    <i class="icon-heart"></i><?php echo $image->likes->count; ?> 
+                                    <i class="icon-comment"></i><?php echo $image->comments->count; ?>
+                                </p>
                             </div>             
                         </li>
                     <? endforeach; ?>
