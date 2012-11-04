@@ -10,6 +10,7 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 ?>
+<?php if($this->items != false) : ?>
 <ul class="thumbnails">
 <?php foreach ($this->items as $item) : ?>
     <li>
@@ -33,3 +34,8 @@ defined('_JEXEC') or die('Restricted access');
     </li>
 <?php endforeach; ?>
 </ul>
+<?php else : ?>
+    <a class="modal" href="index.php?option=com_instaboard&amp;view=auth&amp;format=raw&amp;<?php echo JUtility::getToken() ?>=1" rel="{handler: 'iframe', size: {x: 875, y: 750}, onClose: function() {}}">
+        Authorize
+    </a>
+<?php endif; ?>

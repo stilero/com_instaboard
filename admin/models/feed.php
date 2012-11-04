@@ -23,10 +23,13 @@ class InstaboardModelFeed extends JModelItem
     public function getImages(){
         $params = & JComponentHelper::getParams('com_instaboard');
         $accessToken = $params->get('access_token');
-        $InstaMedia = new InstaUsers($accessToken);
-        $userFeed = $InstaMedia->getSelfFeed(50);
-        $feed = json_decode($userFeed);
-        $images = $feed->data;
-        return $images;
+        if($accessToken != ''){
+            $InstaMedia = new InstaUsers($accessToken);
+            $userFeed = $InstaMedia->getSelfFeed(50);
+            $feed = json_decode($userFeed);
+            $images = $feed->data;
+            return $images;
+        }
+        return false;
     }
 }
