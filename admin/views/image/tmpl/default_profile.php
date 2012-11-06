@@ -26,10 +26,16 @@ if($this->isFollowing == true){
 ?>
 <div class="row-fluid">
     <div class="span6">
-        <a href="index.php?option=com_instaboard&view=user&format=raw&user_id=<?php echo $this->image->user->id; ?>"><img src="<?php echo $this->image->user->profile_picture; ?>" class="img-polaroid" /></a>
+        <a href="index.php?option=com_instaboard&view=user&format=raw&user_id=<?php echo $this->image->user->id; ?>">
+            <img src="<?php echo $this->image->user->profile_picture; ?>" class="img-polaroid" />
+        </a>
     </div>
     <div class="span5">
-        <span class="username"><a href="index.php?option=com_instaboard&view=user&format=raw&user_id=<?php echo $this->image->user->id; ?>"><?php echo $this->image->user->username; ?><a></span>
+        <span class="username">
+            <a href="index.php?option=com_instaboard&view=user&format=raw&user_id=<?php echo $this->image->user->id; ?>">
+                <?php echo $this->image->user->username; ?>
+            </a>
+        </span>
         <form id="relationform" name="relationform">
             <button type="submit" id="relationbtn" class="btn <?php echo $btnClass; ?>" type="button"><i class="<?php echo $btnIcon; ?> icon-white"></i> <span><?php echo $btnLabel; ?></span></button>
             <input type="hidden" name="option" value="com_instaboard" />
