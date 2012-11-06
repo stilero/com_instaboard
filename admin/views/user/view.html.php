@@ -30,9 +30,11 @@ class InstaboardViewUser extends JView{
         $relationsModel =& $this->getModel('relationship');
         $isFollowing = $relationsModel->isFollowing($user_id);
         $this->isFollowing = $isFollowing;
-        JToolBarHelper::title($user->username, 'user');
-        $this->assignRef('images', $images);
-        $this->assignRef('user', $user);
+        if(isset($user->username)){
+            JToolBarHelper::title($user->username, 'user');
+            $this->assignRef('images', $images);
+            $this->assignRef('user', $user);
+        }
         parent::display($tpl);
     }
     

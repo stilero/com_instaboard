@@ -9,6 +9,10 @@
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
+if(!isset($this->user)){
+    print "private user";
+    return;
+}
 ?>
 <div id="profile">
      <?php echo $this->loadTemplate('profile'); ?>

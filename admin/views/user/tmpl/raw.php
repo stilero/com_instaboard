@@ -12,9 +12,7 @@
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
-//$embeded = new InstaEmbeddings();
-//$json = $embeded->getOembeded($this->image->link);
-//$imageEmbeds = json_decode($json);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,6 +28,15 @@ defined('_JEXEC') or die('Restricted access');
         <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/js/like.js'; ?>"></script>
         <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/js/comment.js'; ?>"></script>
         <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/js/relationship.js'; ?>"></script>
+        <?php if(!isset($this->user)): ?>
+        <div class="container-fluid">
+            <div class="row-fluid well">
+                <h1>Private user</h1>
+            </div>
+        </div>
+        <?php 
+            return;
+            endif; ?>
         <div class="container-fluid">
             <div class="row-fluid well">
                 <div class="span3">
@@ -61,12 +68,9 @@ defined('_JEXEC') or die('Restricted access');
                                 </p>
                             </div>             
                         </li>
-                    <? endforeach; ?>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
     </body>
 </html>
-<?php 
-//unset($embeded); 
-?>
