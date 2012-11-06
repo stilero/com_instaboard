@@ -1,0 +1,42 @@
+<?php
+/**
+ * Auth View
+ *
+ * @version  1.0
+ * @author daniel
+ * @copyright  (C) 2012-nov-04 Stilero Web design
+ * @category Components
+ * @license	GPLv2
+ * 
+ */
+
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
+ 
+// import Joomla view library
+jimport('joomla.application.component.view');
+
+class InstaBoardViewAuth extends JView{
+    
+    function display($tpl = null){
+        parent::display($tpl);
+    }
+    
+    public function openAuthorization(){
+        $model =& $this->getModel('auth');
+        $model->openAuthorization();
+        return;
+    }
+    
+    public function getToken($code){
+        $model =& $this->getModel('auth');
+        $isSuccessful = $model->getToken($code);
+        $msg = 'App Authorized';
+        if(!$isSuccessful){
+            $msg = 'Failed authorizing';
+        }
+        $this->msg = $msg;
+        $this->wasSuccessful = $isSuccessful;
+        parent::display();
+    }
+}

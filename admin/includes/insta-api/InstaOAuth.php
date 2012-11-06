@@ -19,7 +19,8 @@ class InstaOAuth{
     protected static $_instagramOAuthUrl = 'https://api.instagram.com/oauth/';
     protected $InstaClient;
     protected $_redirectUri;
-    protected $debug = true;
+    protected $debug = false;
+    protected $errors = array();
     
     public function __construct(&$InstaClient, $redirectUri) {
         $this->InstaClient = $InstaClient;
