@@ -43,7 +43,14 @@ class InstaBoardModelAuth extends JModelItem{
         if($accessToken != false){
             $params = & JComponentHelper::getParams('com_instaboard');
             $params->set('access_token', $accessToken);
-            return true;
+            $db =& JFactory::getDbo();
+            $query = $db->getQuery(true);
+            $query->update('#__extensions AS a');
+            $query->set('a.params = '.$db->quote((string)$params->toString()));
+            $query->where('a.element = '.$db->quote('com_instaboard'));
+            $db->setQuery($query);
+            $result = $db->query();
+            return $result;
         }
         return false;
     }

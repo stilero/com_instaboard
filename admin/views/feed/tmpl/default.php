@@ -21,7 +21,7 @@ defined('_JEXEC') or die('Restricted access');
                         <?php echo $item->user->username; ?>
                 </a>
             </h3>
-            <a class="modal" href="index.php?option=com_instaboard&amp;view=image&amp;format=raw&amp;<?php echo JUtility::getToken() ?>=1&amp;id=<?php echo $item->id; ?>" rel="{handler: 'iframe', size: {x: 875, y: 750}, onClose: function() {}}">
+            <a class="modal" href="index.php?option=com_instaboard&amp;view=image&amp;format=raw&amp;<?php echo JUtility::getToken() ?>=1&amp;id=<?php echo $item->id; ?>" rel="{handler: 'iframe', size: {x: 875, y: 750}, onClose: function() {window.location.reload();}}">
                     <img class="feed_image" src="<?php echo $item->images->thumbnail->url; ?>" />
                 </a>
             

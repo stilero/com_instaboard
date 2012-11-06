@@ -26,7 +26,7 @@ $header = $this->wasSuccessful ? 'Success' : 'Error';
         <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/bootstrap/js/bootstrap.min.js'; ?>"></script>
         <div class="container-fluid">
                 <div class="alert alert-<?php echo $class; ?>">
-                <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button type="button" class="close" data-dismiss="alert" onClick="window.parent.document.location.reload();window.parent.SqueezeBox.close();">×</button>
                 <h4><?php echo $header; ?></h4>
                 <?php echo $this->msg; ?>
                 </div>
