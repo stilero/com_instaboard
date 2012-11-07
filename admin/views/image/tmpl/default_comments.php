@@ -26,7 +26,7 @@ if($remainCount > 0){
     <div class="comment">
             <div class="row-fluid">
                 <div class="span4">
-                    <a href="index.php?option=com_instaboard&view=user&format=raw&user_id=<?php echo $comment->from->id; ?>"><img src="<?php echo $comment->from->profile_picture; ?>" class="img-polaroid" width="60" height="60" /></a>
+                    <a href="index.php?option=com_instaboard&view=user&format=raw&user_id=<?php echo $comment->from->id; ?>"><img data-src="<?php echo $comment->from->profile_picture; ?>" src="#" class="img-polaroid" width="60" height="60" /></a>
                 </div>
                 <div class="span8">
                     <div class="username">

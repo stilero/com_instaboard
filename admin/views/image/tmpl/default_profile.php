@@ -27,7 +27,7 @@ if($this->isFollowing == true){
 <div class="row-fluid">
     <div class="span6">
         <a href="index.php?option=com_instaboard&view=user&format=raw&user_id=<?php echo $this->image->user->id; ?>">
-            <img src="<?php echo $this->image->user->profile_picture; ?>" class="img-polaroid" />
+            <img data-src="<?php echo $this->image->user->profile_picture; ?>" class="img-polaroid" src="#" />
         </a>
     </div>
     <div class="span5">

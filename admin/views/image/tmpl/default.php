@@ -30,10 +30,16 @@ defined('_JEXEC') or die('Restricted access');
         <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/js/like.js'; ?>"></script>
         <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/js/comment.js'; ?>"></script>
         <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/js/relationship.js'; ?>"></script>
+        <script src="<?php echo JURI::root().'media/system/js/mootools-core.js'; ?>"></script>
+        <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/js/lazyload.js'; ?>"></script>
+        <?php 
+        JHTML::_('behavior.mootools'); 
+        JHtml::script(JURI::root().'administrator/components/com_instaboard/assets/js/lazyload.js'); 
+        ?>
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span7">
-                    <img src="<?php echo $this->image->images->standard_resolution->url; ?>" />
+                    <img data-src="<?php echo $this->image->images->standard_resolution->url; ?>" src="#" />
                     <div class="row-fluid">
                             <?php echo $this->loadTemplate('commentform'); ?>
                     </div>

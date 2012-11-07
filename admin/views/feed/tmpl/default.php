@@ -9,6 +9,7 @@
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
+
 ?>
 <?php if($this->items != false) : ?>
 <ul class="thumbnails">
@@ -17,12 +18,12 @@ defined('_JEXEC') or die('Restricted access');
         <div class="thumbnail">
             <h3>
                 <a class="modal" href="index.php?option=com_instaboard&amp;view=user&amp;format=raw&amp;<?php echo JUtility::getToken() ?>=1&amp;user_id=<?php echo $item->user->id; ?>" rel="{handler: 'iframe', size: {x: 875, y: 750}, onClose: function() {}}">
-                    <img class="profile_picture" src="<?php echo $item->user->profile_picture; ?>" width="20" height="20" /> 
+                    <img class="profile_picture" data-src="<?php echo $item->user->profile_picture; ?>"  src="#" width="20" height="20" /> 
                         <?php echo $item->user->username; ?>
                 </a>
             </h3>
             <a class="modal" href="index.php?option=com_instaboard&amp;view=image&amp;format=raw&amp;<?php echo JUtility::getToken() ?>=1&amp;id=<?php echo $item->id; ?>" rel="{handler: 'iframe', size: {x: 875, y: 750}, onClose: function() {}}">
-                    <img class="feed_image" src="<?php echo $item->images->thumbnail->url; ?>" />
+                    <img class="feed_image" data-src="<?php echo $item->images->thumbnail->url; ?>" src="#" />
                 </a>
             
             <p>
