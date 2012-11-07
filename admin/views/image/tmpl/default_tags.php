@@ -17,6 +17,8 @@ defined('_JEXEC') or die('Restricted access');
 <i class="icon-tag"></i> Tags
 <div class="all-tags">
     <?php foreach ($this->image->tags as $tag) : ?>
-    <span class="label label-info"><?php echo $tag; ?></span>
+        <a target="_parent" href="index.php?option=com_instaboard&view=tag&tag=<?php echo $tag; ?>">
+            <span class="label label-info"><?php echo $tag; ?></span>
+        </a>
     <?php endforeach; ?>
 </div>

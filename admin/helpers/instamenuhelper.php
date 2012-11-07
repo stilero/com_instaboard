@@ -41,5 +41,11 @@ class Instamenuhelper{
             'index.php?option='.self::$_compOption.'&view=follows&task=followedBy',
             ($vName == 'followedBy')
         );
+        
+        JSubMenuHelper::addEntry(
+            JText::_('Tag'),
+            'index.php?option='.self::$_compOption.'&view=tag',
+            ($vName == 'tag')
+        );
     }
 }
