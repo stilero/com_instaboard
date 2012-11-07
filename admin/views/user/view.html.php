@@ -23,6 +23,9 @@ class InstaboardViewUser extends JView{
         JToolBarHelper::preferences('com_instaboard');
         Instamenuhelper::addSubmenu('user');
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/css/style.css');
+        JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-grid.min.css');
+        JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-icon.min.css');
+        JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-thumbs.min.css');
         $model =& $this->getModel();
         $user_id = JRequest::getVar('user_id', 'self');
         $images =& $model->getImages($user_id);

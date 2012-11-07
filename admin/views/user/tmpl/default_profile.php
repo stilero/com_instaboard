@@ -12,21 +12,29 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 ?>
-<div class="profile_image">
-    <img src="<?php echo $this->user->profile_picture; ?>" />
-</div>
-<div class="username">
-    <span><?php echo $this->user->username; ?></span>
-</div>
-<div class="full_name">
-    <span><?php echo $this->user->full_name; ?></span>
-</div>
-<div class="bio">
-    <span><?php echo $this->user->bio; ?></span>
-</div>
-<div class="info">
-    <p class="website"><a href="<?php echo $this->user->website; ?>" target="_blank">Website</a></p>
-    <p class="media">Images: <?php echo $this->user->counts->media; ?></p>
-    <p class="media">Following <?php echo $this->user->counts->follows; ?></p>
-    <p class="media">Followed by <?php echo $this->user->counts->followed_by; ?></p>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <img src="<?php echo $this->user->profile_picture; ?>" />
+        </div>
+        <div class="span10">
+            <h2><?php echo $this->user->username; ?></h2>
+            <h3><?php echo $this->user->full_name; ?></h3>
+            <p><?php echo $this->user->bio; ?></p>
+            <div class="row-fluid">
+                <div class="span3">
+                    <span><i class="icon-home"></i> <a href="<?php echo $this->user->website; ?>" target="_blank">Website</a></span>
+                </div>
+                <div class="span3">
+                    <span><i class="icon-camera"></i> Images: <?php echo $this->user->counts->media; ?></span>
+                </div>
+                <div class="span3">
+                    <span><i class="icon-eye-open"></i> Following: <?php echo $this->user->counts->follows; ?></span>
+                </div>
+                <div class="span3">
+                    <span><i class="icon-user"></i> Followed by: <?php echo $this->user->counts->followed_by; ?></span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
