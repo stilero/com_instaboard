@@ -14,9 +14,6 @@
 defined('_JEXEC') or die('Restricted access');
 $class = $this->wasSuccessful ? 'success' : 'error';
 $header = $this->wasSuccessful ? 'Success' : 'Error';
-$type = $this->wasSuccessful ? '' : 'error';
-JFactory::getApplication()->enqueueMessage(JText::_($header).' - '.JText::_($this->msg), $type);
-return;
 ?>
 <!DOCTYPE html>
 <html>

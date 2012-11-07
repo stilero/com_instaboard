@@ -26,8 +26,11 @@ class InstaboardModelFeed extends JModelItem
         if($accessToken != ''){
             $InstaMedia = new InstaUsers($accessToken);
             $userFeed = $InstaMedia->getSelfFeed(50);
-            $feed = json_decode($userFeed);
-            $images = $feed->data;
+            $images = null;
+            if($userFeed != false){
+                $feed = json_decode($userFeed);
+                $images = $feed->data;
+            }
             return $images;
         }
         return false;

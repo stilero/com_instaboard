@@ -35,7 +35,5 @@ defined('_JEXEC') or die('Restricted access');
 <?php endforeach; ?>
 </ul>
 <?php else : ?>
-    <a class="modal" href="index.php?option=com_instaboard&amp;view=auth&amp;format=raw&amp;<?php echo JUtility::getToken() ?>=1" rel="{handler: 'iframe', size: {x: 875, y: 750}, onClose: function() {}}">
-        Authorize
-    </a>
+     <?php echo $this->loadTemplate('auth'); ?>
 <?php endif; ?>

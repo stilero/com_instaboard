@@ -26,6 +26,11 @@ class InstaBoardControllerAuth extends JController{
         $view =& $this->getView( self::$viewName, 'raw' );
         $model =& $this->getModel(  self::$modelName );
         $view->setModel( $model, true );
+        $layout = 'default';
+        if(JRequest::getCmd('format') == 'raw'){
+            $layout = 'raw';
+        }
+        $view->setLayout($layout);
         $code = JRequest::getVar('code', null);
         if($code != null){
             $view->getToken($code);

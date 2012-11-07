@@ -25,7 +25,7 @@ class InstaBoardModelAuth extends JModelItem{
     
     public function __construct($config = array()) {
         parent::__construct($config);
-        $this->redirectUri = JURI::current().'?option=com_instaboard&view=auth&format=raw';
+        $this->redirectUri = JURI::current().'?option=com_instaboard&view=auth';
         $params = & JComponentHelper::getParams('com_instaboard');
         $clientId = $params->get('client_id');
         $clientSecret = $params->get('client_secret');
@@ -50,6 +50,11 @@ class InstaBoardModelAuth extends JModelItem{
             $query->where('a.element = '.$db->quote('com_instaboard'));
             $db->setQuery($query);
             $result = $db->query();
+            if($result){
+                JFactory::getApplication()->redirect('index.php?option=com_instaboard', JText::_('App Authorized'));
+            }else{
+                JFactory::getApplication()->redirect('index.php?option=com_instaboard', JText::_('Failed to authorize app'), 'error');
+            }
             return $result;
         }
         return false;
