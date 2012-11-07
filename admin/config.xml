@@ -5,6 +5,13 @@
         label="COM_INSTABOARD_SETTINGS_LABEL" 
         addfieldpath="/administrator/components/com_instaboard/models/fields">
         <field
+            name="createapp"
+            label="COM_INSTABOARD_SETTINGS_REDIRECT_URI_LABEL"
+            description="COM_INSTABOARD_SETTINGS_REDIRECT_URI_DESC"
+            type="createapp"
+            default="Create Instagram Client App"
+        />
+        <field
             name="redirect_uri"
             label="COM_INSTABOARD_SETTINGS_REDIRECT_URI_LABEL"
             description="COM_INSTABOARD_SETTINGS_REDIRECT_URI_DESC"
