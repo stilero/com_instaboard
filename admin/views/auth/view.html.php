@@ -31,6 +31,7 @@ class InstaBoardViewAuth extends JView{
     }
     
     public function getToken($code){
+        JRequest::checkToken( 'get' ) or die( 'Invalid Token' );
         JToolBarHelper::title(JText::_('Authorization'), 'users');
         $model =& $this->getModel('auth');
         $isSuccessful = $model->getToken($code);

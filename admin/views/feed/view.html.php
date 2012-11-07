@@ -19,9 +19,14 @@ jimport('joomla.application.component.view');
 class InstaboardViewFeed extends JView{
     
     function display($tpl = null){
-        JToolBarHelper::title(JText::_('Feed'), 'newsfeeds');
+        JToolBarHelper::title(JText::_('Not Authorized'), 'user');
         JToolBarHelper::preferences('com_instaboard');
-        Instamenuhelper::addSubmenu('feed');
+        $params = & JComponentHelper::getParams('com_instaboard');
+        $token = $params->get('access_token');
+        if($token != ''){
+            JToolBarHelper::title(JText::_('Feed'), 'newsfeeds');
+            Instamenuhelper::addSubmenu('feed');
+        }
         //JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/css/style.css');
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-grid.min.css');
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-icon.min.css');

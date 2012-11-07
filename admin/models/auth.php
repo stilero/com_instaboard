@@ -25,7 +25,7 @@ class InstaBoardModelAuth extends JModelItem{
     
     public function __construct($config = array()) {
         parent::__construct($config);
-        $this->redirectUri = JURI::current().'?option=com_instaboard&view=auth';
+        $this->redirectUri = JURI::current().'?option=com_instaboard&view=auth&'.JUtility::getToken().'=1';
         $params = & JComponentHelper::getParams('com_instaboard');
         $clientId = $params->get('client_id');
         $clientSecret = $params->get('client_secret');
