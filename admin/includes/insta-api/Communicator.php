@@ -63,7 +63,7 @@ class Communicator {
                 'curlTimeout'           =>  20,
                 'curlReturnTransf'      =>  true, //return the handle as a string
                 'curlSSLVerifyPeer'     =>  false,
-                'curlFollowLocation'    =>  true,
+                'curlFollowLocation'    =>  false,
                 'curlProxy'             =>  false,
                 'curlProxyPassword'     =>  false,
                 'curlEncoding'          =>  false,
