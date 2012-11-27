@@ -45,10 +45,7 @@
         </config>
 	<administration>
             <!-- Administration Menu Section -->
-           <menu img="../media/instaboard/images/menu1.png" link="index.php?option=com_instaboard">instaboard</menu>
-           <submenu>
-                <menu img="../media/instaboard/images/menu1.png" link="option=com_instaboard&amp;view=view2">Menu2</menu>
-            </submenu>
+           <menu img="../administrator/components/com_instaboard/assets/images/instaboard.png" link="index.php?option=com_instaboard">instaboard</menu>
             <!-- Administration Main File Copy Section -->
             <!-- Note the folder attribute: This attribute describes the folder
                     to copy FROM in the package to install therefore files copied

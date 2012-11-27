@@ -32,15 +32,14 @@ jQuery(function($){
     
     $('#likeform').submit(function(e){
         e.preventDefault();
-        var params = $('#likeform').serialize();
+        var likeParams = $('#likeform').serialize();
     
-        $.getJSON('index.php', params, function(data){
+        $.getJSON('index.php', likeParams, function(data){
             if(data.meta.code == '200'){
-                console.debug("debug"); 
-                showSuccess('<strong>Success!</strong> image '+params['task']+'d.', '#likedialog');
-                setBtn(params['task']);
+                showSuccess('<strong>Success!</strong>', '#likedialog');
+                setBtn(likeParams['task']);
             }else{
-                showWarning('<strong>Warning!</strong> Instagram not responding.', '#likedialog');
+                showWarning('<strong>Warning!</strong><br />' + data.meta.error_message, '#likedialog');
             }
         }).error(function(){
             showError('<strong>Error!</strong> server error occured.', '#likedialog');

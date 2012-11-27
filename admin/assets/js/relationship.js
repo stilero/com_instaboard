@@ -32,6 +32,7 @@ jQuery(function($){
     
     $('#relationform').submit(function(e){
         e.preventDefault();
+//        var params = $('#relationform').serialize();
         var params = $('#relationform').serialize();
     
         $.getJSON('index.php', params, function(data){
@@ -39,7 +40,7 @@ jQuery(function($){
                 showSuccess('<strong>Success!</strong> user ' + params['task'] + 'd.', '#likedialog');
                 setBtn(params['task']);
             }else{
-                showWarning('<strong>Warning!</strong> Instagram not responding.', '#likedialog');
+                showWarning('<strong>Warning!</strong><br />' + data.meta.error_message, '#likedialog');
             }
         }).error(function(){
             showError('<strong>Error!</strong> server error occured.', '#likedialog');

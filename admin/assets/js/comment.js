@@ -18,7 +18,7 @@ jQuery(function($){
                 showSuccess('<strong>Success!</strong> Comment sent', '#likedialog');
                 hideForm();
             }else{
-                showWarning('<strong>Warning!</strong> Instagram not responding.', '#likedialog');
+                showWarning('<strong>Warning!</strong><br />' + data.meta.error_message, '#likedialog');
             }
         }).error(function(){
             showError('<strong>Error!</strong> server error occured.', '#likedialog');
