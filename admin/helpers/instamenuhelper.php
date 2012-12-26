@@ -47,5 +47,11 @@ class Instamenuhelper{
             'index.php?option='.self::$_compOption.'&view=tag',
             ($vName == 'tag')
         );
+        
+        JSubMenuHelper::addEntry(
+            JText::_('Popular'),
+            'index.php?option='.self::$_compOption.'&view=popular',
+            ($vName == 'popular')
+        );
     }
 }
