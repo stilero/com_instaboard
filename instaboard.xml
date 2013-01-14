@@ -50,7 +50,7 @@
                     <!-- Admin Main File Copy Section -->
                     <filename>index.html</filename>
                     <filename>config.xml</filename>
-                    <filename>admin.instaboard.php</filename>
+                    <filename>instaboard.php</filename>
                     <filename>controller.php</filename>
                     <folder>views</folder>
                     <folder>models</folder>
