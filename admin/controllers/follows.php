@@ -17,23 +17,23 @@ defined('_JEXEC') or die('Restricted access');
 // import joomla controller library
 jimport('joomla.application.component.controller');
 
-class InstaboardControllerFollows extends JController{
+class InstaboardControllerFollows extends JControllerLegacy{
     
     public static $modelName = 'follows';
     public static $viewName = 'follows';
     
     public function follows(){
         //Set Default View and Model
-        $view =& $this->getView( self::$viewName, 'html' );
-        $model =& $this->getModel(  self::$modelName );
+        $view = $this->getView( self::$viewName, 'html' );
+        $model = $this->getModel(  self::$modelName );
         $view->setModel( $model, true );
         $view->follows();
     }
     
     public function followedBy(){
         //Set Default View and Model
-        $view =& $this->getView( self::$viewName, 'html' );
-        $model =& $this->getModel(  self::$modelName );
+        $view = $this->getView( self::$viewName, 'html' );
+        $model = $this->getModel(  self::$modelName );
         $view->setModel( $model, true );
         $view->followedBy();
     }

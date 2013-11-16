@@ -17,16 +17,16 @@ defined('_JEXEC') or die('Restricted access');
 // import joomla controller library
 jimport('joomla.application.component.controller');
 
-class InstaboardControllerImage extends JController{
+class InstaboardControllerImage extends JControllerLegacy{
     
     public static $modelName = 'image';
     public static $viewName = 'image';
     
-    public function display(){
-        $view =& $this->getView( self::$viewName, 'raw' );
-        $model =& $this->getModel(  self::$modelName );
+    public function display($cachable = false, $urlparams = false){
+        $view = $this->getView( self::$viewName, 'raw' );
+        $model = $this->getModel(  self::$modelName );
         $view->setModel( $model, true );
-        $relationsModel =& $this->getModel('relationship' );
+        $relationsModel = $this->getModel('relationship' );
         $view->setModel( $relationsModel, false);
         $view->display();
     }

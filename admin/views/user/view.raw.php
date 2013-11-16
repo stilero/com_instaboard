@@ -16,14 +16,14 @@ JRequest::checkToken('get') or die( 'Invalid Token' );
 // import Joomla view library
 jimport('joomla.application.component.view');
 
-class InstaboardViewUser extends JView{
+class InstaboardViewUser extends JViewLegacy{
     
     function display($tpl = null){
-        $model =& $this->getModel();
+        $model = $this->getModel();
         $user_id = JRequest::getVar('user_id', 'self');
-        $images =& $model->getImages($user_id);
-        $user =& $model->getUserInfo($user_id);
-        $relationsModel =& $this->getModel('relationship');
+        $images = $model->getImages($user_id);
+        $user = $model->getUserInfo($user_id);
+        $relationsModel = $this->getModel('relationship');
         $isFollowing = $relationsModel->isFollowing($user_id);
         $this->isFollowing = $isFollowing;
         if(isset($user->username)){
@@ -31,6 +31,7 @@ class InstaboardViewUser extends JView{
             $this->assignRef('images', $images);
             $this->assignRef('user', $user);
         }
+        JHTML::_('behavior.modal'); 
         parent::display();
     }
 }

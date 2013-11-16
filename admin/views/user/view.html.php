@@ -17,7 +17,7 @@ defined('_JEXEC') or die('Restricted access');
 // import Joomla view library
 jimport('joomla.application.component.view');
 
-class InstaboardViewUser extends JView{
+class InstaboardViewUser extends JViewLegacy{
     
     function display($tpl = null){
         JToolBarHelper::preferences('com_instaboard');
@@ -26,11 +26,11 @@ class InstaboardViewUser extends JView{
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-grid.min.css');
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-icon.min.css');
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-thumbs.min.css');
-        $model =& $this->getModel();
+        $model = $this->getModel();
         $user_id = JRequest::getVar('user_id', 'self');
-        $images =& $model->getImages($user_id);
-        $user =& $model->getUserInfo($user_id);
-        $relationsModel =& $this->getModel('relationship');
+        $images = $model->getImages($user_id);
+        $user = $model->getUserInfo($user_id);
+        $relationsModel = $this->getModel('relationship');
         $isFollowing = $relationsModel->isFollowing($user_id);
         $this->isFollowing = $isFollowing;
         if(isset($user->username)){
@@ -38,6 +38,7 @@ class InstaboardViewUser extends JView{
             $this->assignRef('images', $images);
             $this->assignRef('user', $user);
         }
+        JHTML::_('behavior.modal'); 
         parent::display($tpl);
     }
     

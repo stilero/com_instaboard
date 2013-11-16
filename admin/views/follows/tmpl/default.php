@@ -16,7 +16,7 @@ defined('_JEXEC') or die('Restricted access');
 <?php foreach ($this->items as $item) : ?>
     <li>
         <div class="thumbnail">
-            <a class="modal" href="index.php?option=com_instaboard&amp;view=user&amp;format=raw&amp;<?php echo JUtility::getToken() ?>=1&amp;user_id=<?php echo $item->id; ?>" rel="{handler: 'iframe', size: {x: 875, y: 750}, onClose: function() {}}">
+            <a class="modal" data-toggle="modal" href="index.php?option=com_instaboard&amp;view=user&amp;format=raw&amp;<?php echo JSession::getFormToken(); ?>=1&amp;user_id=<?php echo $item->id; ?>" rel="{handler: 'iframe', size: {x: 875, y: 750}, onClose: function() {}}">
                 <img src="<?php echo $item->profile_picture; ?>" alt="">
             </a>
             <h3><?php echo $item->username; ?></h3>

@@ -23,7 +23,7 @@ class InstaboardModelImage extends JModelItem{
     
     public function __construct($config = array()) {
         parent::__construct($config);
-        $params = & JComponentHelper::getParams('com_instaboard');
+        $params = JComponentHelper::getParams('com_instaboard');
         $accessToken = $params->get('access_token');
         $this->InstaMedia = new InstaMedia($accessToken);
     }

@@ -25,8 +25,8 @@ class InstaBoardModelAuth extends JModelItem{
     
     public function __construct($config = array()) {
         parent::__construct($config);
-        $this->redirectUri = JURI::current().'?option=com_instaboard&view=auth&'.JUtility::getToken().'=1';
-        $params = & JComponentHelper::getParams('com_instaboard');
+        $this->redirectUri = JURI::current().'?option=com_instaboard&view=auth&'.JSession::getFormToken().'=1';
+        $params = JComponentHelper::getParams('com_instaboard');
         $clientId = $params->get('client_id');
         $clientSecret = $params->get('client_secret');
         $this->client = new InstaClient($clientId, $clientSecret);
@@ -43,7 +43,7 @@ class InstaBoardModelAuth extends JModelItem{
         if($accessToken != false){
             $params = & JComponentHelper::getParams('com_instaboard');
             $params->set('access_token', $accessToken);
-            $db =& JFactory::getDbo();
+            $db = JFactory::getDbo();
             $query = $db->getQuery(true);
             $query->update('#__extensions AS a');
             $query->set('a.params = '.$db->quote((string)$params->toString()));

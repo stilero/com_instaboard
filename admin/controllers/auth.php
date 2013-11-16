@@ -17,14 +17,14 @@ defined('_JEXEC') or die('Restricted access');
 // import joomla controller library
 jimport('joomla.application.component.controller');
 
-class InstaBoardControllerAuth extends JController{
+class InstaBoardControllerAuth extends JControllerLegacy{
     
     public static $modelName = 'auth';
     public static $viewName = 'auth';
     
-    public function display(){
-        $view =& $this->getView( self::$viewName, 'raw' );
-        $model =& $this->getModel(  self::$modelName );
+    public function display($cachable = false, $urlparams = false){
+        $view = $this->getView( self::$viewName, 'raw' );
+        $model = $this->getModel(  self::$modelName );
         $view->setModel( $model, true );
         $layout = 'default';
         if(JRequest::getCmd('format') == 'raw'){

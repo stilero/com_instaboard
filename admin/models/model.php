@@ -18,7 +18,7 @@ defined('_JEXEC') or die('Restricted access');
 // import Joomla modelitem library
 jimport('joomla.application.component.model');
  
-class InstaboardModel extends JModel{
+class InstaboardModel extends JModelLegacy{
     
     protected $_tableName;
     protected $_tableClassName;
@@ -30,7 +30,7 @@ class InstaboardModel extends JModel{
     }
     
     public function getItems(){
-        $db =& JFactory::getDbo();
+        $db = JFactory::getDbo();
         $query = $db->getQuery(true);
         $query->select('*');
         $query->from($db->quoteName($this->_tableName));
@@ -40,7 +40,7 @@ class InstaboardModel extends JModel{
     }
     
     public function getItem($id){
-        $db =& JFactory::getDbo();
+        $db = JFactory::getDbo();
         $query = $db->getQuery(true);
         $query->select('*');
         $query->from($db->quoteName($this->_tableName));
@@ -55,13 +55,13 @@ class InstaboardModel extends JModel{
     }
     
     function getNewItem(){
-        $newItem =& $this->getTable( $this->_tableClassName );
+        $newItem = $this->getTable( $this->_tableClassName );
         $newItem->id = 0;
         return $newItem;
     }
     
     public function store($data){
-        $table =& $this->getTable();
+        $table = $this->getTable();
         $table->reset();
         if(!$table->bind($data)){
             $this->setError($table->getError());
@@ -80,7 +80,7 @@ class InstaboardModel extends JModel{
     
     public function delete($cids){
         $cids = array_map('intval', $cids);
-        $db =& JFactory::getDbo();
+        $db = JFactory::getDbo();
         $query = $db->getQuery(true);
         $query->delete($db->quoteName($this->_tableName));
         $query->where('id IN ('.implode(',', $cids).')');
@@ -93,7 +93,7 @@ class InstaboardModel extends JModel{
     
     private function _setPublish($cids, $state){
         $cids = array_map('intval', $cids);
-        $db =& JFactory::getDbo();
+        $db = JFactory::getDbo();
         $query = $db->getQuery(true);
         $query->update($db->quoteName($this->_tableName));
         $query->set('published = '.(int)$state);

@@ -17,17 +17,17 @@ JRequest::checkToken('get') or die( 'Invalid Token' );
 // import Joomla view library
 jimport('joomla.application.component.view');
 
-class InstaboardViewComment extends JView{
+class InstaboardViewComment extends JViewLegacy{
     
     function display($tpl = null){
         return; 
     }
     
     function postComment($tpl = null){
-        $model =& $this->getModel('comment');
+        $model = $this->getModel('comment');
         $media_id = JRequest::getCmd('media_id');
         $comment = JRequest::getString('comment');
-        $this->response =& $model->postComment($media_id, $comment);
+        $this->response = $model->postComment($media_id, $comment);
         parent::display($tpl);
     }
     

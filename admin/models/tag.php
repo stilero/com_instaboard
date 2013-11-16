@@ -25,7 +25,7 @@ class InstaBoardModelTag extends JModelItem{
     
     public function __construct($config = array()) {
         parent::__construct($config);
-        $params = & JComponentHelper::getParams('com_instaboard');
+        $params = JComponentHelper::getParams('com_instaboard');
         $this->_accessToken = $params->get('access_token');
         $this->_EndPoint = new InstaTags($this->_accessToken);
     }

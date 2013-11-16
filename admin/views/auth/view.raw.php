@@ -16,7 +16,7 @@ defined('_JEXEC') or die('Restricted access');
 // import Joomla view library
 jimport('joomla.application.component.view');
 
-class InstaBoardViewAuth extends JView{
+class InstaBoardViewAuth extends JViewLegacy{
     
     function display($tpl = null){
         JToolBarHelper::title(JText::_('Authorization'), 'users');
@@ -25,7 +25,7 @@ class InstaBoardViewAuth extends JView{
     
     public function openAuthorization(){
         JToolBarHelper::title(JText::_('Authorization'), 'users');
-        $model =& $this->getModel('auth');
+        $model = $this->getModel('auth');
         $model->openAuthorization();
         return;
     }
@@ -33,7 +33,7 @@ class InstaBoardViewAuth extends JView{
     public function getToken($code){
         JRequest::checkToken( 'get' ) or die( 'Invalid Token' );
         JToolBarHelper::title(JText::_('Authorization'), 'users');
-        $model =& $this->getModel('auth');
+        $model = $this->getModel('auth');
         $isSuccessful = $model->getToken($code);
         $msg = 'App Authorized';
         if(!$isSuccessful){

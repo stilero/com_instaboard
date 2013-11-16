@@ -16,14 +16,14 @@ defined('_JEXEC') or die('Restricted access');
 // import joomla controller library
 jimport('joomla.application.component.controller');
 
-class InstaboardController extends JController{
+class InstaboardController extends JControllerLegacy{
     
     public static $modelName = 'feed';
     public static $viewName = 'feed';
     
-    public function display(){
-        $view =& $this->getView( self::$viewName, 'html' );
-        $model =& $this->getModel(  self::$modelName );
+    public function display($cachable = false, $urlparams = false){
+        $view = $this->getView( self::$viewName, 'html' );
+        $model = $this->getModel(  self::$modelName );
         $view->setModel( $model, true );
         $view->display();
     }
@@ -35,15 +35,15 @@ class InstaboardController extends JController{
             'cid parameter missing from the request' );
         }
         $controllerId = (int)$cids[0];
-        $view =& $this->getView( JRequest::getVar( 'view',  self::$viewName ), 'html' );
-        $model =& $this->getModel( self::$modelName );
+        $view = $this->getView( JRequest::getVar( 'view',  self::$viewName ), 'html' );
+        $model = $this->getModel( self::$modelName );
         $view->setModel( $model, true );
         $view->edit( $controllerId );
     }
     
     function add(){
-        $view =& $this->getView( JRequest::getVar( 'view',  self::$viewName ), 'html' );
-        $model =& $this->getModel( self::$modelName );
+        $view = $this->getView( JRequest::getVar( 'view',  self::$viewName ), 'html' );
+        $model = $this->getModel( self::$modelName );
         $view->setModel( $model, true );
         $view->add();
     }
@@ -55,7 +55,7 @@ class InstaboardController extends JController{
     }
     
     function apply(){
-        $model =& $this->getModel( self::$modelName );
+        $model = $this->getModel( self::$modelName );
         $model->store();
     }
     
@@ -69,7 +69,7 @@ class InstaboardController extends JController{
         if( $cids === null ){
             JError::raiseError( 500, 'Nothing were selected for removal' );
         }
-        $model =& $this->getModel( self::$modelName);
+        $model = $this->getModel( self::$modelName);
         $model->delete( $cids);
         $redirectTo = JRoute::_('index.php?option='.JRequest::getVar( 'option' ).'&task=display');
         $this->setRedirect( $redirectTo, 'Deleted' );

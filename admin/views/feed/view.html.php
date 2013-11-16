@@ -16,12 +16,12 @@ defined('_JEXEC') or die('Restricted access');
 // import Joomla view library
 jimport('joomla.application.component.view');
 
-class InstaboardViewFeed extends JView{
+class InstaboardViewFeed extends JViewLegacy{
     
     function display($tpl = null){
         JToolBarHelper::title(JText::_('Not Authorized'), 'user');
         JToolBarHelper::preferences('com_instaboard');
-        $params = & JComponentHelper::getParams('com_instaboard');
+        $params = JComponentHelper::getParams('com_instaboard');
         $token = $params->get('access_token');
         if($token != ''){
             JToolBarHelper::title(JText::_('Feed'), 'newsfeeds');
@@ -31,11 +31,12 @@ class InstaboardViewFeed extends JView{
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-grid.min.css');
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-icon.min.css');
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-thumbs.min.css');
+        //JHtmlBehavior::framework(true);
         JHTML::_('behavior.mootools'); 
         JHtml::script(JURI::root().'administrator/components/com_instaboard/assets/js/lazyload.js');
         JHTML::_('behavior.modal'); 
-        $model =& $this->getModel('feed');
-        $items =& $model->getImages();
+        $model = $this->getModel('feed');
+        $items = $model->getImages();
         $this->assignRef('items', $items);
         parent::display($tpl);
     }

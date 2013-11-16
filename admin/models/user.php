@@ -15,14 +15,14 @@ defined('_JEXEC') or die('Restricted access');
 // import Joomla modelitem library
 jimport('joomla.application.component.model');
  
-class InstaboardModelUser extends JModel{
+class InstaboardModelUser extends JModelLegacy{
     
     private $_accessToken;
     private $_EndPoint;
     
     public function __construct($config = array()) {
         parent::__construct($config);
-        $params = & JComponentHelper::getParams('com_instaboard');
+        $params = JComponentHelper::getParams('com_instaboard');
         $this->_accessToken = $params->get('access_token');
         $this->_EndPoint = new InstaUsers($this->_accessToken);
     }

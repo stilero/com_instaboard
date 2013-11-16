@@ -21,7 +21,7 @@ class InstaboardModelEndpointmodel extends JModel{
     
     public function __construct($endPoint, $config = array()) {
         parent::__construct($config);
-        $params = & JComponentHelper::getParams('com_instaboard');
+        $params = JComponentHelper::getParams('com_instaboard');
         $accessToken = $params->get('access_token');
         $this->EndPoint = new $endPoint($accessToken);
     }

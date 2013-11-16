@@ -21,7 +21,7 @@ class InstaboardModelPopular extends JModelItem
 {
 	
     public function getImages(){
-        $params = & JComponentHelper::getParams('com_instaboard');
+        $params = JComponentHelper::getParams('com_instaboard');
         $accessToken = $params->get('access_token');
         if($accessToken != ''){
             $InstaMedia = new InstaMedia($accessToken);

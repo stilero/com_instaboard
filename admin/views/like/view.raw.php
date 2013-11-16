@@ -17,22 +17,22 @@ JRequest::checkToken('get') or die( 'Invalid Token' );
 // import Joomla view library
 jimport('joomla.application.component.view');
 
-class InstaboardViewLike extends JView{
+class InstaboardViewLike extends JViewLegacy{
     function display($tpl = null){
         return; 
     }
     
     function like($tpl = null){
-        $model =& $this->getModel('like');
+        $model = $this->getModel('like');
         $image_id = JRequest::getCmd('media_id');
-        $this->response =& $model->likeMedia($image_id);
+        $this->response = $model->likeMedia($image_id);
         parent::display($tpl);
     }
     
     function unlike($tpl = null){
-        $model =& $this->getModel('like');
+        $model = $this->getModel('like');
         $image_id = JRequest::getCmd('media_id');
-        $this->response =& $model->unlikeMedia($image_id);
+        $this->response = $model->unlikeMedia($image_id);
         parent::display($tpl);
     }
 }
