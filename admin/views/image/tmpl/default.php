@@ -33,7 +33,7 @@ defined('_JEXEC') or die('Restricted access');
         <script src="<?php echo JURI::root().'media/system/js/mootools-core.js'; ?>"></script>
         <script src="<?php echo JURI::root().'administrator/components/com_instaboard/assets/js/lazyload.js'; ?>"></script>
         <?php 
-        JHTML::_('behavior.mootools'); 
+        JHtml::_('behavior.framework');
         JHtml::script(JURI::root().'administrator/components/com_instaboard/assets/js/lazyload.js'); 
         ?>
         <div class="container-fluid">

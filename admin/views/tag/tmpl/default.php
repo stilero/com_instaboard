@@ -17,7 +17,7 @@ if(!isset($this->images)){
     <?php foreach ($this->images as $image) : ?>
         <li>
             <div class="thumbnail">
-                <a class="modal" data-toggle="modal" href="index.php?option=com_instaboard&amp;view=image&amp;format=raw&amp;<?php echo JSession::getFormToken(); ?>=1&amp;id=<?php echo $image->id; ?>" rel="{handler: 'iframe', size: {x: 875, y: 750}, onClose: function() {window.location.reload();}}">
+                <a class="modal" data-toggle="modal" href="index.php?option=com_instaboard&amp;view=image&amp;format=raw&amp;<?php echo JSession::getFormToken(); ?>=1&amp;id=<?php echo $image->id; ?>" rel="{handler: 'iframe', size: {x: 875, y: 600}, onClose: function() {window.location.reload();}}">
                     <img class="feed_image" src="<?php echo $image->images->thumbnail->url; ?>" />
                 </a>
                 <p>

@@ -21,7 +21,7 @@ class InstaboardViewPopular extends JViewLegacy{
     function display($tpl = null){
         JToolBarHelper::title(JText::_('Not Authorized'), 'user');
         JToolBarHelper::preferences('com_instaboard');
-        $params = & JComponentHelper::getParams('com_instaboard');
+        $params = JComponentHelper::getParams('com_instaboard');
         $token = $params->get('access_token');
         if($token != ''){
             JToolBarHelper::title(JText::_('Popular'), 'newsfeeds');

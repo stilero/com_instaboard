@@ -32,7 +32,7 @@ class InstaboardViewFeed extends JViewLegacy{
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-icon.min.css');
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-thumbs.min.css');
         //JHtmlBehavior::framework(true);
-        JHTML::_('behavior.mootools'); 
+        JHtml::_('behavior.framework'); 
         JHtml::script(JURI::root().'administrator/components/com_instaboard/assets/js/lazyload.js');
         JHTML::_('behavior.modal'); 
         $model = $this->getModel('feed');
