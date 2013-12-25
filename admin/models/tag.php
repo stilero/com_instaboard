@@ -31,6 +31,9 @@ class InstaBoardModelTag extends JModelItem{
     }
     
     public function getImagesByTag($tag){
+        if($tag == ''){
+            return null;
+        }
         $tagFeed = $this->_EndPoint->getRecentMediaByTag($tag);
         $feed = json_decode($tagFeed);
         $images = null;

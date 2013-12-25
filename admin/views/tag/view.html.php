@@ -29,7 +29,7 @@ class InstaBoardViewTag extends JViewLegacy{
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-icon.min.css');
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-thumbs.min.css');
         $model = $this->getModel();
-        $tag = JRequest::getWord('tag');
+        $tag = JRequest::getWord('tag', '');
         $images = $model->getImagesByTag($tag);
         $this->assignRef('images', $images);
         JHTML::_('behavior.modal'); 

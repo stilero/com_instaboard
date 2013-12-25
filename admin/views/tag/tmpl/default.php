@@ -10,9 +10,11 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 if(!isset($this->images)){
+    echo $this->loadTemplate('search');
     return;
 }
 ?>
+
 <ul class="thumbnails">
     <?php foreach ($this->images as $image) : ?>
         <li>
