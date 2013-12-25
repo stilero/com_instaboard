@@ -2,7 +2,7 @@
 /**
  * Feed View
  *
- * @version  1.0
+ * @version  1.1
  * @author Daniel Eliasson - joomla at stilero.com
  * @copyright  (C) 2012-okt-21 Stilero Webdesign http://www.stilero.com
  * @category Components
@@ -32,7 +32,7 @@ class InstaboardViewPopular extends JViewLegacy{
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-icon.min.css');
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-thumbs.min.css');
         //JHtmlBehavior::framework(true); 
-        JHtml::_('behavior.mootools');
+        JHtml::_('behavior.framework'); 
         JHtml::script(JURI::root().'administrator/components/com_instaboard/assets/js/lazyload.js');
         JHTML::_('behavior.modal'); 
         $model = $this->getModel('popular');
