@@ -1,6 +1,6 @@
 <?php
 /**
- * @version  1.0
+ * @version  1.1
  * @author Daniel Eliasson - joomla at stilero.com
  * @copyright  (C) 2012-okt-21 Stilero Webdesign http://www.stilero.com
  * @category Components
@@ -9,12 +9,12 @@
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
+echo $this->loadTemplate('search');
 if(!isset($this->images)){
-    echo $this->loadTemplate('search');
     return;
 }
 ?>
-
+<h1>Results for "<?php echo JRequest::getWord('tag'); ?>"</h1>
 <ul class="thumbnails">
     <?php foreach ($this->images as $image) : ?>
         <li>
