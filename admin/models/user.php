@@ -48,4 +48,19 @@ class InstaboardModelUser extends JModelLegacy{
         
     }
     
+    public function getUserIdFromName($user_name){
+        $json = $this->_EndPoint->search($user_name);
+        $info = json_decode($json);
+        $userInfo = null;
+        if($info->meta->code == '200'){
+            $userInfo = $info->data;
+        }
+        if(isset($userInfo[0]->id)){
+            return $userInfo[0]->id;
+        }else{
+            return null;
+        }
+        //return $userInfo;
+    }
+    
 }

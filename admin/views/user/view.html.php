@@ -28,6 +28,9 @@ class InstaboardViewUser extends JViewLegacy{
         JHtml::stylesheet(JURI::root().'administrator/components/com_instaboard/assets/bootstrap/css/bootstrap-thumbs.min.css');
         $model = $this->getModel();
         $user_id = JRequest::getVar('user_id', 'self');
+        if(!is_numeric($user_id) && $user_id != 'self'){
+            $user_id = $model->getUserIdFromName($user_id);
+        }
         $images = $model->getImages($user_id);
         $user = $model->getUserInfo($user_id);
         $relationsModel = $this->getModel('relationship');

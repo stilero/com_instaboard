@@ -9,6 +9,7 @@
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
+echo $this->loadTemplate('search');
 if(!isset($this->user)){
     print "private user";
     return;
