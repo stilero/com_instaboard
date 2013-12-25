@@ -2,7 +2,7 @@
 /**
  * Description of Instaboard
  *
- * @version  1.0
+ * @version  1.1
  * @author Daniel Eliasson - joomla at stilero.com
  * @copyright  (C) 2012-okt-27 Stilero Webdesign http://www.stilero.com
  * @category Components
