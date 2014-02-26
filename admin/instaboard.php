@@ -2,7 +2,7 @@
 /**
  * Description of Component_InstaBoard
  *
- * @version  1.0
+ * @version  1.1
  * @author Daniel Eliasson - joomla at stilero.com
  * @copyright  (C) 2012-okt-21 Stilero Webdesign http://www.stilero.com
  * @category Components
@@ -10,7 +10,10 @@
  */
 
 // no direct access
-defined('_JEXEC') or die('Restricted access'); 
+defined('_JEXEC') or die('Restricted access');
+if(!defined('DS')){
+    define('DS', DIRECTORY_SEPARATOR);
+}
 define('INCLUDES_FOLDER', JPATH_COMPONENT_ADMINISTRATOR.'/includes/');
 define('INSTA_API', INCLUDES_FOLDER.'insta-api/');
 jimport('joomla.filesystem.file');
